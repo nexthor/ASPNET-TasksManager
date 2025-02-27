@@ -1,7 +1,10 @@
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TasksManager.Api.Contexts;
 using TasksManager.Api.Extensions;
+using TasksManager.Api.Models;
+using TasksManager.Api.Options;
 
 namespace TasksManager.Api
 {
@@ -27,6 +30,16 @@ namespace TasksManager.Api
             opt.UseSqlServer(configuration.GetConnectionString(SD.DbConnection)));
             // add common options
             services.Configure<TaskManagerOptions>(configuration.GetSection(SD.TasksManager));
+            // add jwt options
+            services.Configure<JwtOptions>(configuration.GetSection(SD.Jwt));
+            // add identity
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+            services.ConfigureAuthorization(configuration);
+            // general services
+            services.AddServices();
+            services.AddAutoMapper(typeof(Program));
 
             var app = builder.Build();
 
