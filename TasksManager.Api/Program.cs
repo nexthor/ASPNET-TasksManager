@@ -25,6 +25,8 @@ namespace TasksManager.Api
             // Add DbContext
             services.AddDbContext<AppDbContext>(opt =>
             opt.UseSqlServer(configuration.GetConnectionString(SD.DbConnection)));
+            // add common options
+            services.Configure<TaskManagerOptions>(configuration.GetSection(SD.TasksManager));
 
             var app = builder.Build();
 

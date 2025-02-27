@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # Local files
 appsettings.Local.json
+# Project Properties folders (exclude if needed)
+**/[Pp]roperties/
