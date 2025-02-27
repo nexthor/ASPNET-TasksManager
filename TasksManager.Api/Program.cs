@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+using TasksManager.Api.Contexts;
 using TasksManager.Api.Extensions;
 
 namespace TasksManager.Api
@@ -18,7 +20,11 @@ namespace TasksManager.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            // configuration priority: appsettings.Local.json > appsettings.Development.json > appsettings.json
             services.AddAppsettingsConfiguration(configuration, environment);
+            // Add DbContext
+            services.AddDbContext<AppDbContext>(opt =>
+            opt.UseSqlServer(configuration.GetConnectionString(SD.DbConnection)));
 
             var app = builder.Build();
 
