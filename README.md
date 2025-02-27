@@ -2,7 +2,8 @@
 
 A RESTful API built with **ASP.NET Core** for managing tasks, featuring JWT-based authentication and CRUD operations. This project demonstrates backend development skills using modern .NET tools and practices.
 
-![Swagger UI Preview](https://via.placeholder.com/800x400.png?text=Swagger+UI+Preview) <!-- Optional: Add a screenshot later -->
+![Swagger UI Preview]![image](https://github.com/user-attachments/assets/bf8d15c2-d6f2-48be-bded-17b7d7793e27)
+
 
 ## Features
 - ✅ **JWT Authentication**: Register and log in to secure your tasks.
