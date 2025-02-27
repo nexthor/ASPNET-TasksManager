@@ -21,6 +21,7 @@ namespace TasksManager.Api.Extensions
         {
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddScoped<ITaskService, TaskService>();
 
             return services;
         }

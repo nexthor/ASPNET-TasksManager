@@ -75,6 +75,7 @@ namespace TasksManager.Api.Services
 
             var result = await _userManager.CreateAsync(user, request.Password);
 
+            // TODO: Add error handling and email verification
             if (!result.Succeeded)
                 throw new Exception(string.Join(",", result.Errors.Select(x => $"{x.Code}: {x.Description}").ToList()));
 
